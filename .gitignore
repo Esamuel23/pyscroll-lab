@@ -1,0 +1,21 @@
+# private channel data and anything built from it
+data/
+*.duckdb
+*.duckdb.wal
+mlruns/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
