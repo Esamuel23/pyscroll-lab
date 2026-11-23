@@ -14,7 +14,17 @@ The channel's raw data is private and is never committed. The code reads it from
 
 ## Status
 
-Phase 0: skeleton, CI and a `/health` endpoint. See [ROADMAP.md](ROADMAP.md) for the plan and [JOURNAL.md](JOURNAL.md) for the daily log.
+Phase 0: skeleton, CI and a `/health` endpoint, reviewed.
+
+- [System design](docs/SYSTEM_DESIGN.md): context, requirements, qualities, key decisions
+- [Architecture](docs/ARCHITECTURE.md): layers, what exists now, request flow, repo map
+- [Reviews](docs/reviews/): one file per reviewed change, with findings and decisions
+- [Metrics history](metrics/HISTORY.md): a snapshot after every change (`python tools/snapshot.py "label"`)
+- [ROADMAP.md](ROADMAP.md) for the plan, [JOURNAL.md](JOURNAL.md) for the daily log
+
+## The loop
+
+Code one small change → review it (`docs/reviews/`) → fix → `python tools/snapshot.py "<label>"` → commit → CI. Every phase also updates the architecture doc.
 
 ## Run it
 

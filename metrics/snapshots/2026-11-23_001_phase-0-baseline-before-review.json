@@ -1,0 +1,38 @@
+{
+  "taken_at": "2026-11-23T15:15:15",
+  "label": "Phase 0 baseline (before review)",
+  "git": {
+    "sha": "9dfc320",
+    "dirty": true
+  },
+  "size": {
+    "src_files": 4,
+    "src_loc": 79,
+    "test_loc": 49,
+    "test_functions": 5
+  },
+  "tests": {
+    "passed": 4,
+    "failed": 1,
+    "warnings": 1,
+    "seconds": 2.03,
+    "coverage_pct": 91.7
+  },
+  "lint": {
+    "ruff_issues": 0,
+    "mypy_errors": 0
+  },
+  "complexity": {
+    "blocks": 9,
+    "avg": 2.56,
+    "max": 6
+  },
+  "api": {
+    "routes": [
+      "GET /health"
+    ]
+  },
+  "deps": {
+    "runtime": 4
+  }
+}

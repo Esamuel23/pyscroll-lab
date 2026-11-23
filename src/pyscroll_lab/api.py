@@ -1,5 +1,7 @@
 """HTTP API. Phase 0 ships only /health; later phases add reels, metrics, predict, hooks, ask and evals."""
 
+from typing import Annotated
+
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 
@@ -18,7 +20,7 @@ class Health(BaseModel):
 
 
 @app.get("/health", response_model=Health)
-def health(settings: Settings = Depends(get_settings)) -> Health:  # noqa: B008
+def health(settings: Annotated[Settings, Depends(get_settings)]) -> Health:
     missing = settings.missing_sources()
     return Health(
         status="ok" if settings.data_root is not None and not missing else "degraded",

@@ -42,6 +42,19 @@ def test_health_ok_with_complete_data_root(client_for, tmp_path: Path) -> None:
     assert body["missing_sources"] == []
 
 
+def test_health_reports_built_warehouse(client_for, tmp_path: Path) -> None:
+    wh = tmp_path / "w.duckdb"
+    wh.write_bytes(b"")
+    body = client_for(Settings(data_root=make_data_root(tmp_path), warehouse_path=wh)).get("/health").json()
+    assert body["warehouse_built"] is True
+
+
+def test_settings_paths_are_absolute(tmp_path: Path) -> None:
+    s = Settings(data_root=Path("rel"), warehouse_path=Path("data/w.duckdb"))
+    assert s.warehouse_path.is_absolute()
+    assert s.data_root is not None and s.data_root.is_absolute()
+
+
 def test_health_lists_missing_sources(client_for, tmp_path: Path) -> None:
     root = make_data_root(tmp_path)
     (root / "STANDARDS.md").unlink()

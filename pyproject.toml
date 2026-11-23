@@ -24,6 +24,8 @@ dev = [
   "ruff>=0.6",
   "mypy>=1.10",
   "pre-commit>=3.7",
+  "pytest-cov>=5.0",
+  "radon>=6.0",
 ]
 
 [project.scripts]
@@ -49,3 +51,7 @@ packages = ["pyscroll_lab"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+filterwarnings = [
+  # upstream: starlette's TestClient still uses httpx (review 2026-11-23, finding 6); revisit on upgrade
+  "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]

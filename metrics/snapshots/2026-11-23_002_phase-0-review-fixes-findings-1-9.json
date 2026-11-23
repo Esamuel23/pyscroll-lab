@@ -1,0 +1,38 @@
+{
+  "taken_at": "2026-11-23T15:18:49",
+  "label": "Phase 0 review fixes (findings 1-9)",
+  "git": {
+    "sha": "9dfc320",
+    "dirty": true
+  },
+  "size": {
+    "src_files": 4,
+    "src_loc": 91,
+    "test_loc": 79,
+    "test_functions": 9
+  },
+  "tests": {
+    "passed": 9,
+    "failed": 0,
+    "warnings": 0,
+    "seconds": 3.27,
+    "coverage_pct": 98.6
+  },
+  "lint": {
+    "ruff_issues": 0,
+    "mypy_errors": 0
+  },
+  "complexity": {
+    "blocks": 10,
+    "avg": 2.4,
+    "max": 6
+  },
+  "api": {
+    "routes": [
+      "GET /health"
+    ]
+  },
+  "deps": {
+    "runtime": 4
+  }
+}
