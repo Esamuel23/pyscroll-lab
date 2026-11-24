@@ -1,0 +1,29 @@
+{
+  // Workspace look for reviews and IDE snapshots (docs/REVIEW_FRAMEWORK.md).
+  "workbench.colorTheme": "Dark Modern",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 24,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [100],
+  "editor.renderWhitespace": "boundary",
+  "breadcrumbs.enabled": true,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.startupEditor": "none",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    ".coverage": true
+  },
+
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.analysis.typeCheckingMode": "strict",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.ruff": "explicit" }
+  }
+}

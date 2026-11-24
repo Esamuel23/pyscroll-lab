@@ -10,6 +10,29 @@ The same review every time, held to a senior bar. Three levels, each with a fixe
 
 Naming: one id per change (`P1-03`) used in the review file, the snapshot label, the commit subject and the journal heading.
 
+## IDE snapshots (VS Code)
+
+Every review shows the code the way it looks in the editor, not just as `file:line` text. The IDE is **VS Code**, opened on this folder. It has a `code -g file:line` command that jumps any window to a line, and the workspace look is fixed in `.vscode/settings.json` (Dark Modern, 16 px, no minimap, ruler at 100), so every snapshot matches. PyCharm works for reading, but snapshots come from VS Code.
+
+**Keep VS Code open on `pyscroll-lab` during a review.** Claude drives it:
+
+| When | What Claude does | File |
+|---|---|---|
+| You blind-review | Nothing in the editor. You open the diff yourself | |
+| Walkthrough | Opens each hop of the traced request in order, in your window | `docs/snapshots/<id>/00-trace-<n>.png` |
+| Each finding | Opens the line, snapshots it **before** the fix | `docs/snapshots/<id>/<nn>-before.png` |
+| After the fix | Same file and line, snapshotted again | `docs/snapshots/<id>/<nn>-after.png` |
+| Sprint review | The best before/after pair goes on the deck's finding slide | |
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/ide_snap.ps1 -File src/pyscroll_lab/config.py -Line 20 -Id P1-01 -Name 01-before
+```
+
+Rules:
+- **Public repo:** never snapshot `.env*` (except `.env.example`), anything under `data/`, or a terminal showing paths or numbers from channel data. The script refuses `.env` and `data/` paths. Close the bottom panel before a snapshot.
+- Findings in the review file link their snapshots: `![01 before](../snapshots/P1-01/01-before.png)`.
+- The window must be visible on screen. The script brings it to the front, but anything drawn on top of it (a notification, another window) ends up in the image. Check each PNG before committing.
+
 ---
 
 ## 1. Change review
@@ -55,7 +78,7 @@ Naming: one id per change (`P1-03`) used in the review file, the snapshot label,
 One request or job traced from entry point to data/model and back.
 
 ## Findings
-| # | Sev | Dimension | Where (file:line) | Finding | Decision |
+| # | Sev | Dimension | Where (file:line) | Finding | Decision | Snapshot (before → after) |
 
 ## Scores
 | Dimension | Score | Why |
