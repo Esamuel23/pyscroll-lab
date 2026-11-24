@@ -29,7 +29,20 @@ Each phase ends with something running that can be called. Work lands as one sma
 - Weekly: ingest new metrics, compare predicted vs actual, check calibration and drift, retrain, and promote only on held-out weeks.
 - `GET /monitor/weekly` plus a markdown report.
 
+## Phase 5: Ship it
+- Dockerfile with a size budget, built in CI.
+- Deploy to AWS with synthetic data (the real data stays private); Terraform for the infrastructure.
+- Structured logs with request ids, latency metrics, load test per endpoint.
+
+## Phase 6: Deep ML
+- A small PyTorch model on CPU (hook text classifier), compared with the Phase 2 models.
+- A LoRA fine-tune of a small model on a free Colab GPU vs prompting, scored on the same eval.
+
+Phases 5–6 come from the job postings in [docs/SKILLS_MATRIX.md](docs/SKILLS_MATRIX.md).
+
 ## Review routine
+
+The full framework (severity levels, 10 scored dimensions, sprint and phase reviews, the deck) is in [docs/REVIEW_FRAMEWORK.md](docs/REVIEW_FRAMEWORK.md). Short version:
 1. What changed and why.
 2. Contracts and tests first.
 3. Walk one request from endpoint to SQL or model and back.

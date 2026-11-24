@@ -18,6 +18,8 @@ Phase 0: skeleton, CI and a `/health` endpoint, reviewed.
 
 - [System design](docs/SYSTEM_DESIGN.md): context, requirements, qualities, key decisions
 - [Architecture](docs/ARCHITECTURE.md): layers, what exists now, request flow, repo map
+- [Skills matrix](docs/SKILLS_MATRIX.md): ML / AI engineer job requirements → the phase that covers each, with evidence
+- [Review framework](docs/REVIEW_FRAMEWORK.md): severity levels, 10 scored dimensions, sprint and phase reviews
 - [Reviews](docs/reviews/): one file per reviewed change, with findings and decisions
 - [Metrics history](metrics/HISTORY.md): a snapshot after every change (`python tools/snapshot.py "label"`)
 - [ROADMAP.md](ROADMAP.md) for the plan, [JOURNAL.md](JOURNAL.md) for the daily log
